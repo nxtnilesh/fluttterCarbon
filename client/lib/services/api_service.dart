@@ -66,10 +66,20 @@ class ApiService {
       headers: _headers,
     );
 
+    print("Carbon Credits Response Status: ${response.statusCode}");
+    print("Carbon Credits Response Body: ${response.body}");
+
     if (response.statusCode == 200) {
-      final List<dynamic> data = jsonDecode(response.body)['data'];
-      print("Data: $data");
-      return data.map((json) => CarbonCredit.fromJson(json)).toList();
+      final responseJson = jsonDecode(response.body);
+      print("Decoded Response: $responseJson");
+      
+      final List<dynamic> data = responseJson['data'];
+      print("Data List: $data");
+      
+      final credits = data.map((json) => CarbonCredit.fromJson(json)).toList();
+      print("Parsed Credits: $credits");
+      
+      return credits;
     } else {
       throw Exception('Failed to fetch carbon credits: ${response.body}');
     }

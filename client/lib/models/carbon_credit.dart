@@ -34,7 +34,7 @@ class CarbonCredit {
       status: json['status'],
       verificationStatus: json['verificationStatus'],
       verificationDocuments: List<String>.from(json['verificationDocuments']),
-      sellerId: json['seller'],
+      sellerId: json['seller'] is Map ? json['seller']['_id'] : json['seller'],
     );
   }
 

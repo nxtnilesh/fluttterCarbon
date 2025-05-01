@@ -17,9 +17,12 @@ class CarbonCreditProvider with ChangeNotifier {
     notifyListeners();
 
     try {
+      print("Fetching carbon credits...");
       _credits = await ApiService.getCarbonCredits();
+      print("Fetched credits: $_credits");
       _error = null;
     } catch (e) {
+      print("Error fetching carbon credits: $e");
       _error = e.toString();
       _credits = [];
     } finally {

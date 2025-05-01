@@ -14,6 +14,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// app.get("/demo", (req, res) => {
+//   res.status(500).json({
+//     message: 'some error',
+//     error: null
+//   });
+
+// })
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/carbon-credits', carbonCreditRoutes);

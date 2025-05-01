@@ -66,6 +66,12 @@ export const getCarbonCredit = async (req, res) => {
       message: 'Error fetching carbon credit',
       error: error.message
     });
+    
+    // res.status(200).json({
+    //   success: false,
+    //   data: "null"
+    // });
+
   }
 };
 
