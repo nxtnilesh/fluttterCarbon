@@ -13,7 +13,7 @@ router.get('/', getCarbonCredits);
 router.get('/:id', getCarbonCredit);
 
 // Protected routes
-// router.use(protect);
+router.use(protect);
 
 // router.post('/', authorize('seller'), createCarbonCredit);
 // router.post('/:id/buy', authorize('buyer'), buyCarbonCredit);

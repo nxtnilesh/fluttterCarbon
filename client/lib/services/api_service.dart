@@ -119,6 +119,8 @@ class ApiService {
     );
 
     if (response.statusCode == 200) {
+      print("xxxxxxxxxxxxxxxx");
+      print(response.body);
       return jsonDecode(response.body)['data'];
     } else {
       throw Exception('Failed to fetch profile: ${response.body}');

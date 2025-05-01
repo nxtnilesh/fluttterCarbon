@@ -62,6 +62,7 @@ class _CarbonCreditsScreenState extends State<CarbonCreditsScreen> {
             onPressed: () async {
               if (formKey.currentState!.validate()) {
                 Navigator.pop(context);
+                print(credit.id);
                 await context
                     .read<CarbonCreditProvider>()
                     .buyCarbonCredit(credit.id, int.parse(creditsController.text));

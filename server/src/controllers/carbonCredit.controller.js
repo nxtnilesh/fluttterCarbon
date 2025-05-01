@@ -12,8 +12,8 @@ export const createCarbonCredit = async (req, res) => {
       pricePerCredit,
       description,
       verificationDocuments,
-      seller: req.user._id
-      // seller: "6809e30f9db5a0f3ebb3ff00"
+      // seller: req.user._id
+      seller: "6809e30f9db5a0f3ebb3ff00"
     });
 
     res.status(201).json({
@@ -78,13 +78,17 @@ export const getCarbonCredit = async (req, res) => {
 export const buyCarbonCredit = async (req, res) => {
   try {
     const { credits } = req.body;
+    console.log("ai", credits);
+    console.log("parmas", req.params.id);
+    
     const carbonCredit = await CarbonCredit.findById(req.params.id);
-
+    
     if (!carbonCredit) {
       return res.status(404).json({
         message: 'Carbon credit not found'
       });
     }
+    console.log("cardbonCredit Data");
 
     if (carbonCredit.status !== 'available') {
       return res.status(400).json({
